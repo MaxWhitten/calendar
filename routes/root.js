@@ -15,23 +15,21 @@
 //                                ECLYPSE
 //
 
-const app = require('express')();
-const cors = require('cors');
+const express = require('express');
+const router = express.Router();
+const fs = require('fs');
 
-app.use(cors());
-
-const rootRouter = require("./routes/root");
-const cssRouter = require("./routes/css");
-const jsRouter = require("./routes/js");
-const mediaRouter = require("./routes/media");
-
-app.use("/", rootRouter);
-app.use("/css", cssRouter);
-app.use("/js", jsRouter);
-app.use("/media", mediaRouter);
-
-// specifying server port
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+router.get('/', (req, res) => {
+  console.log(`New http request to '/' from ip ${req.headers['x-forwarded-for'] || req.socket.remoteAddress }`)
+  fs.readFile(`./static/html/main.html`, function (err, data) {
+    if (err) {
+      res.send("Oops! Couldn't find that file.");
+    } else {
+      res.contentType('text/html');
+      res.send(data);
+    }
+    res.end();
+  });
 });
+
+module.exports = router;
