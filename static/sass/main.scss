@@ -42,7 +42,7 @@
     padding: 0;
     margin: 0;
     user-select: none;
-    cursor: default;
+    cursor: inherit;
 }
 
 .material-symbols-outlined {
@@ -55,6 +55,7 @@
 
 html {
     background-color: var(--accent-1);
+    cursor: default;
 
     body {
         background-color: var(--background-accent);
@@ -104,6 +105,9 @@ html {
                     margin-right: 10px;
                     justify-self: flex-end;
                     align-self: center;
+                    align-items: center;
+                    display: flex;
+                    flex-direction: row;
                 }
 
                 img {
@@ -119,14 +123,21 @@ html {
                     }
                 }
 
-                .home {
-                    font-size: 40px;
-                    transform: translateY(-3px);
-                    cursor: pointer;
-                    transition: all 0.2s ease-in-out;
+                .svg {
+                    margin-right: 5px;
+                    height: 40px;
+                    width: 40px;
 
-                    &:hover {
-                        color: var(--text-2);
+                    .home {
+                        height: 40px;
+                        width: 40px;
+                        // transform: translateY(-3px);
+                        cursor: pointer;
+                        transition: all 0.2s ease-in-out;
+
+                        &:hover {
+                            fill: var(--text-3);
+                        }
                     }
                 }
 
@@ -183,12 +194,14 @@ html {
                                 display: flex;
                                 justify-content: end;
 
-                                span {
+                                .svg {
+                                    width: 24px;
+                                    height: 24px;
                                     cursor: pointer;
                                     transition: all 0.2s ease-in-out;
 
-                                    &:hover {
-                                        color: var(--text-3)
+                                    &:hover svg {
+                                        fill: var(--text-3)
                                     }
                                 }
                             }
@@ -282,6 +295,17 @@ html {
                                     flex-direction: row;
                                     justify-content: end;
                                     align-items: center;
+
+                                    .svg {
+                                        width: 24px;
+                                        height: 24px;
+                                        transition: all 0.2s ease-in-out;
+                                        cursor: pointer;
+
+                                        &:hover svg {
+                                            fill: var(--text-3)
+                                        }
+                                    }
                                 }
                             }
 
@@ -304,7 +328,7 @@ html {
                                         background-color: var(--hover-accent);
 
                                         .controls {
-                                            span {
+                                            .svg {
                                                 opacity: 1;
                                             }
                                         }
@@ -313,6 +337,7 @@ html {
                                     .checkbox {
                                         width: 24px;
                                         height: 24px;
+                                        cursor: pointer;
 
                                         input {
                                             opacity: 0;
@@ -322,6 +347,7 @@ html {
                                             height: 30px;
                                             margin: -3px;
                                             padding: 0;
+                                            cursor: pointer;
                                         }
 
                                         .viewbox {
@@ -332,14 +358,14 @@ html {
                                             border-radius: 5px;
                                             border: var(--element-color) 2px solid;
 
-                                            svg {
+                                            .svg {
                                                 opacity: 0;
                                             }
 
                                             &.checked {
                                                 background-color: var(--element-color);
 
-                                                svg {
+                                                .svg {
                                                     opacity: 1;
                                                 }
                                             }
@@ -357,13 +383,15 @@ html {
                                         align-items: end;
                                         transition: all 0.2s ease-in-out;
 
-                                        span {
+                                        .svg {
+                                            width: 24px;
+                                            height: 24px;
                                             transition: all 0.2s ease-in-out;
                                             opacity: 0;
                                             cursor: pointer;
 
-                                            &:hover {
-                                                color: var(--text-3);
+                                            &:hover svg {
+                                                fill: var(--text-3);
                                             }
                                         }
                                     }
@@ -387,12 +415,12 @@ html {
                             align-items: center;
 
                             #info {
-                                font-size: 20px;
+                                width: 20px;
                                 transition: all 0.2s ease-in-out;
                                 cursor: pointer;
 
                                 &:hover {
-                                    color: var(--text-3)
+                                    fill: var(--text-3)
                                 }
                             }
 
@@ -434,7 +462,7 @@ html {
                         .spacer {
                             width: 72px;
                             height: 100%;
-                            padding: 10px 0 0 10px;
+                            padding: 10px;
 
                             #addWrapper {
                                 width: 58px;
@@ -445,7 +473,7 @@ html {
                                 cursor: pointer;
                                 transition: all 0.2s ease-in-out;
 
-                                svg {
+                                .svg {
                                     cursor: pointer;
                                     transition: inherit;
 
@@ -458,7 +486,7 @@ html {
                                 &:hover {
                                     background-color: var(--accent-2);
 
-                                    svg {
+                                    .svg {
                                         path {
                                             fill: var(--background-accent) !important;
                                         }
@@ -712,7 +740,5 @@ html {
                 }
             }
         }
-
-
     }
 }
