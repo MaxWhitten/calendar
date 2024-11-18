@@ -187,6 +187,10 @@ html {
                                 font-size: 20px;
                                 cursor: default;
                                 user-select: none;
+
+                                span:first-child {
+                                    padding-right: 7px;
+                                }
                             }
 
                             .controls {

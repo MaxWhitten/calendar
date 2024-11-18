@@ -32,6 +32,7 @@ router.get('/:directory/:file', (req, res) => {
 });
 
 router.get('/:file', (req, res) => {
+  console.log('called /css')
   fs.readFile(`./static/css/${req.params.file}`, function (err, data) {
     if (err) {
       res.send("Oops! Couldn't find that file.");
