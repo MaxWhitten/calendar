@@ -1,2 +1,4 @@
 *.code-workspace
 /.sass-cache
+.replit
+replit.nix
